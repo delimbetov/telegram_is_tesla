@@ -1,8 +1,9 @@
 from enum import Enum
 from logger import get_logger
 from fastai.learner import load_learner
-from fastai.vision.core import Image as FastAiImage
+from fastai.vision.core import PILImage as FastAiImage
 from PIL import Image as PILImage
+import numpy as np
 
 
 class Class(Enum):
@@ -16,10 +17,7 @@ class Class(Enum):
 
 
 def pil2fast(image: PILImage):
-    if type(PILImage) is not type(FastAiImage):
-        raise RuntimeError("Types must match")
-
-    return image
+    return FastAiImage.create(np.array(image.convert('RGB')))
 
 
 class Classifier:
