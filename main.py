@@ -9,17 +9,17 @@ def main():
 
     # Parse command line args
     # 0 - prog name
-    # 1 - api id
-    # 2 - api hash
-    # 3 - bot token
-    # 4 - path_to_model
+    # 1 - path_to_model
+    # 2 - api id
+    # 3 - api hash
+    # 4 - bot token
     if len(sys.argv) != 5:
-        raise RuntimeError("Api id, api hash, token, path_to_model are required to be passed as command line argument")
+        raise RuntimeError("Path to model, api id, api hash, token are required to be passed as command line argument")
 
-    api_id = int(sys.argv[1])
-    api_hash = sys.argv[2]
-    token = sys.argv[3]
-    path_to_model = sys.argv[4]
+    path_to_model = sys.argv[1]
+    api_id = int(sys.argv[2])
+    api_hash = sys.argv[3]
+    token = sys.argv[4]
 
     # Load configs
     bot_config = BotConfig(
