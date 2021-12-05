@@ -14,7 +14,8 @@ def main():
     # 3 - api hash
     # 4 - bot token
     if len(sys.argv) != 5:
-        raise RuntimeError("Path to model, api id, api hash, token are required to be passed as command line argument")
+        raise RuntimeError("Path to model, api id, api hash, token are required to be passed as command line "
+                           "argument. sys.argv: {}".format(sys.argv))
 
     path_to_model = sys.argv[1]
     api_id = int(sys.argv[2])
